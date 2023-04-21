@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Amplify, { API } from 'aws-amplify';
-import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+import { API } from 'aws-amplify';
+// import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
+// import '@aws-amplify/ui-react/styles.css';
 
-function App({ signOut, user}) {
+function App() {
   const [file, setFile] = useState(null);
   const [clips, setClips] = useState([]);
 
@@ -38,7 +38,7 @@ function App({ signOut, user}) {
       
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('userId', user.username);
+      // formData.append('userId', user.username);
       
       const response = await fetch('http://localhost:5001/upload', {
         method: 'POST',
@@ -79,8 +79,8 @@ function App({ signOut, user}) {
     <div className="App">
       <h1>Video Clip Generator</h1>
       <h2>{message}</h2>
-      <Heading level={1}>Hello {user.username}</Heading>
-      <Button onClick={signOut}>Sign out</Button>
+      {/* <Heading level={1}>Hello {user.username}</Heading>
+      <Button onClick={signOut}>Sign out</Button> */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="file">Select a file:</label>
         <p>
@@ -102,4 +102,4 @@ function App({ signOut, user}) {
   );
 }
 
-export default withAuthenticator(App);
+export default App;
