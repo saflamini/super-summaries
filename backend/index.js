@@ -52,21 +52,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-
-// const privateKey = fs.readFileSync('./backend/server.key', 'utf8');
-// const certificate = fs.readFileSync('./backend/server.crt ', 'utf8');
-const certPath = '/Users/sam_flamini/devPortfolio/super-summaries/backend/server.crt';
-const keyPath = '/Users/sam_flamini/devPortfolio/super-summaries/backend/server.key';
-
-// const certificate = fs.readFileSync(certPath, 'utf-8');
-// const privateKey = fs.readFileSync(keyPath, 'utf-8');
-// const passphrase = process.env.PASSPHRASE;
-
-// const sslOptions = {
-//   key: privateKey,
-//   cert: certificate,
-//   passphrase: passphrase
-// };
 //SET UP ASSEMBLY AI
 const assembly = axios.create({
   baseURL: "https://api.assemblyai.com/v2",
